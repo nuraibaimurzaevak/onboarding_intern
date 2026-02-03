@@ -1,0 +1,80 @@
+:root {
+  /* AI-палитра - только темные тона */
+  --ai-blue: #00D4FF;
+  --ai-purple: #977DFF;
+  --ai-pink: #FF66C4;
+  --ai-teal: #00FFC3;
+  --neon-cyan: #00FFFF;
+  
+  /* Градиенты */
+  --gradient-cyan: linear-gradient(135deg, #00D4FF 0%, #00FFFF 100%);
+  --gradient-purple: linear-gradient(135deg, #977DFF 0%, #FF66C4 100%);
+  --gradient-card: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(151, 125, 255, 0.1) 100%);
+  
+  /* Фоны - только темные */
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #1A1A1A;
+  --bg-card: rgba(26, 26, 26, 0.9);
+  --bg-header: rgba(0, 0, 0, 0.95);
+  
+  /* Текст - делаем ярче и контрастнее */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;  /* Был #AAAAAA - сделаем светлее */
+  --text-tertiary: #E0E0E0;   /* Для дополнительного текста */
+  --text-accent: #00D4FF;
+  --text-glow: #00FFFF;
+  
+  /* Эффекты */
+  --shadow-subtle: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+  --glow-text: 0 0 10px rgba(0, 212, 255, 0.7);
+  
+  /* Границы */
+  --border-light: 1px solid rgba(255, 255, 255, 0.15);  /* Более заметно */
+  --border-glow: 1px solid rgba(0, 212, 255, 0.4);
+  --border-neon: 1px solid rgba(0, 255, 255, 0.6);
+  
+  /* Разное */
+  --border-radius: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 30px;
+  
+  /* Размеры */
+  --header-height: 80px;
+  --sidebar-width: 280px;
+  --sidebar-collapsed: 90px;
+  
+  /* Шрифты */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-tech: 'JetBrains Mono', monospace;
+  --font-futura: 'Orbitron', 'Futura', sans-serif;
+  
+  /* Анимации */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s ease;
+}
+
+/* Светлая тема - тоже делаем контрастнее */
+[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-tertiary: #F1F5F9;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-header: rgba(255, 255, 255, 0.95);
+  
+  /* Текст - темный и читаемый */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --text-accent: #0066CC;
+  --text-glow: #0099FF;
+  
+  --ai-blue: #0066CC;
+  --ai-purple: #7C3AED;
+  --neon-cyan: #0099FF;
+  
+  --gradient-cyan: linear-gradient(135deg, #0066CC 0%, #0099FF 100%);
+  --border-light: 1px solid rgba(0, 0, 0, 0.1);
+  --border-glow: 1px solid rgba(0, 102, 204, 0.3);
+}

@@ -1,0 +1,29 @@
+.trainee-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f7;
+}
+
+.trainee-main {
+  display: flex;
+  flex: 1;
+}
+
+.trainee-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #f5f5f7;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .trainee-main {
+    flex-direction: column;
+  }
+  
+  .trainee-content {
+    padding: 20px 15px;
+  }
+}

@@ -1,0 +1,409 @@
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: rgba(10, 10, 10, 0.95);
+  border-right: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed);
+}
+
+/* Градиентная полоска сверху */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    var(--ai-purple), 
+    var(--neon-cyan), 
+    var(--ai-purple)
+  );
+  opacity: 0.7;
+}
+
+/* Заголовок сайдбара */
+.sidebar-header {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.sidebar-logo {
+  font-family: var(--font-tech);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--neon-cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  display: none;
+}
+
+/* Кнопка сворачивания */
+.collapse-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--neon-cyan);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.collapse-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 212, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.collapse-btn:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: var(--neon-cyan);
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.collapse-btn:hover::before {
+  left: 100%;
+}
+
+.collapse-btn:active {
+  transform: translateY(0);
+}
+
+/* Навигация */
+.sidebar-nav {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Пункты навигации */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+/* Фоновый градиент при наведении */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.1), 
+    rgba(151, 125, 255, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+/* Активная полоска слева */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: var(--gradient-cyan);
+  border-radius: 0 4px 4px 0;
+  transition: height 0.3s ease;
+}
+
+.nav-item:hover {
+  color: white;
+  border-color: rgba(0, 212, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.nav-item:hover::before {
+  opacity: 1;
+}
+
+.nav-item:hover::after {
+  height: 60%;
+}
+
+/* Активный пункт */
+.nav-item.active {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.15), 
+    rgba(151, 125, 255, 0.15)
+  );
+  color: white;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.2),
+    inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+.nav-item.active::before {
+  opacity: 1;
+}
+
+.nav-item.active::after {
+  height: 80%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Иконки */
+.nav-icon {
+  font-size: 1.4rem;
+  width: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.3));
+}
+
+.nav-item:hover .nav-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.7));
+}
+
+/* Текст */
+.nav-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-item:hover .nav-label {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-item.active .nav-label {
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Свернутый сайдбар */
+.sidebar.collapsed .nav-label {
+  display: none;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 16px;
+}
+
+.sidebar.collapsed .nav-item:hover {
+  transform: scale(1.05);
+}
+
+.sidebar.collapsed .nav-item::after {
+  display: none;
+}
+
+/* Подсказки при наведении в свернутом состоянии */
+.sidebar.collapsed .nav-item {
+  position: relative;
+}
+
+.sidebar.collapsed .nav-item::before {
+  display: none;
+}
+
+.sidebar.collapsed .nav-item:hover::before {
+  display: block;
+  content: attr(title);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 10, 10, 0.95);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  z-index: 1000;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin-left: 10px;
+  backdrop-filter: blur(10px);
+}
+
+/* Скроллбар */
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: var(--gradient-cyan);
+  border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-item {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Для светлой темы */
+[data-theme="light"] .sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  border-right: 1px solid rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .sidebar::before {
+  background: linear-gradient(90deg, 
+    #7C3AED, 
+    #0099FF, 
+    #7C3AED
+  );
+}
+
+[data-theme="light"] .sidebar-logo {
+  color: #0066CC;
+}
+
+[data-theme="light"] .collapse-btn {
+  background: rgba(0, 102, 204, 0.1);
+  border-color: rgba(0, 102, 204, 0.2);
+  color: #0066CC;
+}
+
+[data-theme="light"] .collapse-btn:hover {
+  background: rgba(0, 102, 204, 0.2);
+  border-color: #0066CC;
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .nav-item {
+  color: #666666;
+}
+
+[data-theme="light"] .nav-item::before {
+  background: linear-gradient(135deg, 
+    rgba(0, 102, 204, 0.1), 
+    rgba(124, 58, 237, 0.1)
+  );
+}
+
+[data-theme="light"] .nav-item:hover {
+  color: #000000;
+  border-color: rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .nav-item.active {
+  background: linear-gradient(135deg, 
+    rgba(0, 102, 204, 0.15), 
+    rgba(124, 58, 237, 0.15)
+  );
+  border-color: rgba(0, 102, 204, 0.3);
+  box-shadow: 
+    0 0 20px rgba(0, 102, 204, 0.1),
+    inset 0 0 10px rgba(0, 102, 204, 0.05);
+  color: #000000;
+}
+
+[data-theme="light"] .nav-item.active::after {
+  background: #0066CC;
+  box-shadow: 0 0 10px #0066CC;
+}
+
+[data-theme="light"] .nav-icon {
+  filter: drop-shadow(0 0 2px rgba(0, 102, 204, 0.2));
+}
+
+[data-theme="light"] .nav-item:hover .nav-icon {
+  filter: drop-shadow(0 0 4px rgba(0, 102, 204, 0.4));
+}
+
+[data-theme="light"] .nav-item.active .nav-icon {
+  filter: drop-shadow(0 0 6px rgba(0, 102, 204, 0.6));
+}
+
+[data-theme="light"] .sidebar-nav::-webkit-scrollbar-track {
+  background: rgba(0, 102, 204, 0.05);
+}
+
+[data-theme="light"] .sidebar-nav::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0066CC 0%, #0099FF 100%);
+}
+
+[data-theme="light"] .sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #0099FF;
+}

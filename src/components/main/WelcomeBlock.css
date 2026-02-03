@@ -1,0 +1,26 @@
+.welcome-block {
+  margin-bottom: 24px;
+}
+
+.welcome-content h2 {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.welcome-content p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.welcome-instruction {
+  font-style: italic;
+  background: var(--bg-gray);
+  padding: 12px;
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary-color);
+}
+
+.welcome-block .btn {
+  margin-top: 16px;
+}

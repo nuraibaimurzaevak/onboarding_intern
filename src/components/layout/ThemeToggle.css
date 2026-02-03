@@ -1,0 +1,115 @@
+/* Крутой переключатель тем - всегда видимый */
+.theme-toggle-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-glow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.3),
+    inset 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* Светящаяся обводка */
+.theme-toggle-circle::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-cyan);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle-circle svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--neon-cyan);
+  stroke-width: 2;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+}
+
+.theme-toggle-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 30px rgba(0, 212, 255, 0.5),
+    0 0 50px rgba(0, 212, 255, 0.2),
+    inset 0 0 25px rgba(0, 212, 255, 0.15);
+}
+
+.theme-toggle-circle:hover::before {
+  opacity: 0.5;
+}
+
+.theme-toggle-circle:hover svg {
+  stroke: #00FFFF;
+  transform: rotate(15deg);
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.8));
+}
+
+.theme-toggle-circle:active {
+  transform: scale(0.95);
+}
+
+/* Для темной темы - делаем ярче */
+[data-theme="dark"] .theme-toggle-circle {
+  background: rgba(20, 20, 30, 0.9);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 
+    0 0 25px rgba(0, 212, 255, 0.4),
+    inset 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+[data-theme="dark"] .theme-toggle-circle svg {
+  stroke: #00FFFF;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));
+}
+
+[data-theme="dark"] .theme-toggle-circle:hover {
+  background: rgba(30, 30, 40, 0.9);
+  border-color: rgba(0, 255, 255, 0.7);
+  box-shadow: 
+    0 0 40px rgba(0, 212, 255, 0.6),
+    0 0 60px rgba(0, 212, 255, 0.3),
+    inset 0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+/* Для светлой темы */
+[data-theme="light"] .theme-toggle-circle {
+  background: #f0f0f0;
+  border-color: rgba(0, 102, 204, 0.4);
+  box-shadow: 
+    0 0 20px rgba(0, 102, 204, 0.3),
+    inset 0 0 15px rgba(0, 102, 204, 0.1);
+}
+
+[data-theme="light"] .theme-toggle-circle svg {
+  stroke: #0066CC;
+  filter: drop-shadow(0 0 5px rgba(0, 102, 204, 0.4));
+}
+
+[data-theme="light"] .theme-toggle-circle:hover {
+  background: #ffffff;
+  border-color: rgba(0, 153, 255, 0.6);
+  box-shadow: 
+    0 0 30px rgba(0, 102, 204, 0.4),
+    0 0 50px rgba(0, 102, 204, 0.2),
+    inset 0 0 20px rgba(0, 102, 204, 0.15);
+}
+
+[data-theme="light"] .theme-toggle-circle:hover svg {
+  stroke: #0099FF;
+  filter: drop-shadow(0 0 10px rgba(0, 102, 204, 0.6));
+}

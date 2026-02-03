@@ -1,0 +1,119 @@
+.footer {
+  background: rgba(10, 10, 20, 0.95);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 40px 0 20px;
+  margin-top: 60px;
+  backdrop-filter: blur(20px);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.footer-section h4 {
+  color: var(--neon-cyan);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-section p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.footer-section .copyright {
+  color: var(--text-secondary);
+  opacity: 0.7;
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--ai-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  padding: 12px 20px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: var(--border-radius);
+  transition: all var(--transition);
+}
+
+.map-link:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: var(--neon-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.map-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.map-icon {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+}
+
+/* Для светлой темы */
+[data-theme="light"] .footer {
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .footer-section h4 {
+  color: #0066CC;
+}
+
+[data-theme="light"] .footer-section p {
+  color: #666666;
+}
+
+[data-theme="light"] .footer-logo {
+  background: linear-gradient(135deg, #0066CC 0%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .map-link {
+  color: #0066CC;
+  background: rgba(0, 102, 204, 0.1);
+  border: 1px solid rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .map-link:hover {
+  background: rgba(0, 102, 204, 0.2);
+  border-color: #0066CC;
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.2);
+}
+
+[data-theme="light"] .map-icon {
+  filter: drop-shadow(0 0 3px rgba(0, 102, 204, 0.3));
+}

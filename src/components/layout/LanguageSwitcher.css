@@ -1,0 +1,31 @@
+.language-switcher {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 212, 255, 0.05);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.lang-btn {
+  padding: 8px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--ai-blue) 0%, var(--ai-purple) 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--text-primary);
+}

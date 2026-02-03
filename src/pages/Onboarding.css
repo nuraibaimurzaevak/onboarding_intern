@@ -1,0 +1,34 @@
+.onboarding-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.coming-soon {
+  margin-top: 40px;
+  padding: 40px;
+  background: var(--bg-gray);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+.coming-soon h2 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.coming-soon p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+.coming-soon ul {
+  text-align: left;
+  max-width: 500px;
+  margin: 20px auto;
+  padding-left: 20px;
+}
+
+.coming-soon li {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+}
