@@ -1,0 +1,37 @@
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcome-section {
+  margin-bottom: 32px;
+}
+
+.welcome-section h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

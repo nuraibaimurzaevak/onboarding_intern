@@ -1,0 +1,406 @@
+/* HomePage.css */
+.home-page-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f7;
+}
+
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Шапка */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #3a86ff;
+  letter-spacing: 1px;
+}
+
+.user-welcome h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.current-date {
+  margin: 5px 0 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #666;
+  background: #f8f9fa;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.logout-btn {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Основной контент */
+.main-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: 24px;
+  padding: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Карточки */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid #f1f3f4;
+  margin-bottom: 24px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  color: #2d3436;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Прогресс круг */
+.progress-circle {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 25px 0;
+}
+
+.circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(#3a86ff 0% var(--progress, 0%), #e9ecef var(--progress, 0%) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.progress-value {
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  font-weight: 800;
+  color: #2d3436;
+}
+
+.progress-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3a86ff;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Табы */
+.tabs {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 24px;
+  border: 1px solid #f1f3f4;
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Таймлайн */
+.timeline {
+  padding: 10px 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.marker {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.marker.completed {
+  background: #4caf50;
+  color: white;
+}
+
+.marker.in-progress {
+  background: #ff9800;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.marker.pending {
+  background: #e0e0e0;
+  color: #666;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 152, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+}
+
+.timeline-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, #e0e0e0 0%, transparent 100%);
+  margin-top: 10px;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+/* Подвал */
+.footer {
+  background: white;
+  padding: 24px 40px;
+  border-top: 1px solid #e9ecef;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-links a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #3a86ff;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  
+  .header {
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+  
+  .user-welcome h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .header-left {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .progress-circle {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .progress-stats {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

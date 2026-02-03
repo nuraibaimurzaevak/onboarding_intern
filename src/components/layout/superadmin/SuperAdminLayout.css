@@ -1,0 +1,30 @@
+
+.superadmin-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0a0e17;
+  color: #ffffff;
+}
+
+.superadmin-main {
+  display: flex;
+  flex: 1;
+}
+
+.superadmin-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 100%);
+}
+
+@media (max-width: 768px) {
+  .superadmin-main {
+    flex-direction: column;
+  }
+  
+  .superadmin-content {
+    padding: 20px 15px;
+  }
+}

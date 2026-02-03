@@ -1,38 +1,36 @@
-.App {
-  text-align: center;
+/* Базовые стили для обеих тем */
+:root {
+  /* Переменные определены в variables.css */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Стили для темной темы */
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #1A1A1A;
+  --bg-card: rgba(26, 26, 26, 0.8);
+  --text-primary: #FFFFFF;
+  --text-secondary: #AAAAAA;
+  --border-light: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Стили для светлой темы */
+[data-theme="light"] {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #F1F5F9;
+  --bg-tertiary: #E2E8F0;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --border-light: 1px solid rgba(0, 102, 204, 0.1);
+  --ai-blue: #0066CC;
+  --neon-cyan: #0099FF;
+  --border-glow: 1px solid rgba(0, 102, 204, 0.2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Убедимся, что body реагирует на смену темы */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
